@@ -124,7 +124,10 @@ public abstract class Persona {
 	}
 	
 	
-	
+	@Override
+	public String toString() {
+		return this.getApellido()+ " "+this.getNombre();
+	}
 	
 	
 	

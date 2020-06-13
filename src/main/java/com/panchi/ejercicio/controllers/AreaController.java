@@ -25,6 +25,7 @@ public class AreaController {
 		model.addAttribute("title","Registre la nueva area");
 		model.addAttribute("area",area); 
 		
+		
 		return "area/form"; 
 	}
 	
@@ -39,7 +40,7 @@ public class AreaController {
 	public String update(@PathVariable(value="id") Integer id,Model model) {
 		Area area =srvArea.findById(id);
 		model.addAttribute("area",area);
-		model.addAttribute("title","Actualizando el registro"+area);
+		model.addAttribute("title","Actualizando el registro "+area);
 		return "area/form";
 	}
 	

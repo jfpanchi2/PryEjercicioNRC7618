@@ -66,6 +66,14 @@ public class Profesor extends Persona implements Serializable {
 	
 	@OneToMany(mappedBy="docente", fetch=FetchType.LAZY)
 	private List<Aula> aulas;
+
+
+
+	@Override
+	public String toString() {
+		return "Profesor [titulo=" + titulo + ", fechaIngreso=" + fechaIngreso + ", tipoContrato=" + tipoContrato
+				+ ", tiempoDedicacion=" + tiempoDedicacion + ", aulas=" + aulas + "]";
+	}
 	
 	
 	

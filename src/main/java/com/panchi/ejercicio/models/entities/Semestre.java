@@ -1,6 +1,7 @@
 package com.panchi.ejercicio.models.entities;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
@@ -13,6 +14,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="semestres")
@@ -27,18 +32,28 @@ public class Semestre implements Serializable{
 	private Integer idsemestre;
 	
 	@Column(name="fecha_inicio")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")	
     private Calendar fechaInicio;
 	
 	@Column(name="fecha_unidad_i")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")	
     private Calendar fechaUnidadI;
 	
 	@Column(name="fecha_unidad_ii")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")	
     private Calendar fechaUnidadII;
 	
 	@Column(name="fecha_unidad_iii")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")	
     private Calendar fechaUnidadIII;
 	
 	@Column(name="fecha_fin")
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")	
     private Calendar fechaFin;
 	
 	@Column(name="codigo")
@@ -122,9 +137,38 @@ public class Semestre implements Serializable{
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+
+	@Override
+	public String toString() {
+		return "Semestre [idsemestre=" + idsemestre + ", fechaInicio=" + fechaInicio + ", fechaUnidadI=" + fechaUnidadI
+				+ ", fechaUnidadII=" + fechaUnidadII + ", fechaUnidadIII=" + fechaUnidadIII + ", fechaFin=" + fechaFin
+				+ ", codigo=" + codigo + ", descripcion=" + descripcion + ", materias=" + materias + "]";
+	}
 	
 	
+	public String fechaInicio() {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MMM/yyyy");		
+		return sdf.format(fechaInicio.getTime());
+	}
 	
+	public String fechaUnidadI() {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MMM/yyyy");		
+		return sdf.format(fechaUnidadI.getTime());
+	}
 	
+	public String fechaUnidadII() {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MMM/yyyy");		
+		return sdf.format(fechaUnidadII.getTime());
+	}
+	
+	public String fechaUnidadIII() {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MMM/yyyy");		
+		return sdf.format(fechaUnidadIII.getTime());
+	}
+	
+	public String fechaFin() {
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MMM/yyyy");		
+		return sdf.format(fechaFin.getTime());
+	}
 
 }

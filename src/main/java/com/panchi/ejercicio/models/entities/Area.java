@@ -67,6 +67,12 @@ public class Area implements Serializable {
 	@OneToMany(mappedBy="area", fetch=FetchType.LAZY) //MApped By debe ser un atributo en la clase relacionada
 	private List<Materia> materias;
 
+	@Override
+	public String toString() {
+		return "Area [idarea=" + idarea + ", nombre=" + nombre + ", materias=" + materias + "]";
+	}
+
+	
 	
 	
 }

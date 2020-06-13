@@ -89,6 +89,12 @@ public class Aula implements Serializable {
 	public void setAsignatura(Materia asignatura) {
 		this.asignatura = asignatura;
 	}
+
+	@Override
+	public String toString() {
+		return "Aula [idaula=" + idaula + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", docente="
+				+ docente + ", asignatura=" + asignatura + "]";
+	}
 	
 	
 	

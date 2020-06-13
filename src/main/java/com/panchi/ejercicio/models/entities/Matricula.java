@@ -100,6 +100,12 @@ public class Matricula implements Serializable{
 		this.curso = curso;
 	}
 
+	@Override
+	public String toString() {
+		return "Matricula [idmatricula=" + idmatricula + ", fecha=" + fecha + ", costo=" + costo + ", tipo=" + tipo
+				+ ", estudiante=" + estudiante + ", curso=" + curso + "]";
+	}
+
 	
 	
 }

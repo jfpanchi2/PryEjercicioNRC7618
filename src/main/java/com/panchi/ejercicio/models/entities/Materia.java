@@ -43,7 +43,7 @@ public class Materia implements Serializable{
 
 	@JoinColumn(name="fk_area", referencedColumnName="pk_area")
 	@ManyToOne
-	private Area area;
+	private Area area; 
 	
 	@OneToMany(mappedBy="asignatura", fetch =FetchType.LAZY)
 	private List<Aula> aulas;
@@ -115,6 +115,10 @@ public class Materia implements Serializable{
 	}
 	public void setMatriculas(List<Matricula> matriculas) {
 		this.matriculas = matriculas;
+	}
+	@Override
+	public String toString() {
+		return " Materia ["+ nombre+"] ";
 	}
 	
 	

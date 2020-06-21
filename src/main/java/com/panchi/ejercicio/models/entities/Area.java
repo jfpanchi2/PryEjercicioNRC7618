@@ -27,6 +27,10 @@ public class Area implements Serializable {
 	
 	@Column(name="nombre")
 	private String nombre;
+	
+	@Column(name="coordinador")
+	private String coordinador;
+	
 
 	public Area() {
 		super();
@@ -53,9 +57,19 @@ public class Area implements Serializable {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
+	public String getCoordinador() {
+		return coordinador;
+	}
+
+	public void setCoordinador(String coordinador) {
+		this.coordinador = coordinador;
+	}
 
 	/* ==== Relacion de uno a varios con materias  **/
 	
+	
+
 	public List<Materia> getMaterias() {
 		return materias;
 	}

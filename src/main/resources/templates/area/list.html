@@ -25,6 +25,7 @@
 							<tr>
 								<th>ID</th>
 								<th>Nombre</th>
+								<th>Coordinador</th>
 								
 								<th><a class="btn btn-sm btn-success"
 									th:href="@{/area/create}">&nbsp;Nueva</a></th>
@@ -34,7 +35,7 @@
 							<tr th:each="a : ${areas}">
 								<td th:text="${a.idarea}"></td>
 								<td th:text="${a.nombre}"></td>
-								
+								<td th:text="${a.coordinador}"></td>
 								<td><a class="btn btn-sm btn-warning"
 									th:href="@{/area/update/} + ${a.idarea}">&nbsp;Actualizar</a>
 									<a class="btn btn-sm btn-info"

@@ -57,7 +57,7 @@
 														<div class="form-select ">
 															<select class="list-group-item list-group-item-action list-group-item-primary"
 																th:field="*{area.idarea}">
-																<option value="0">Area Opci&oacute;n</option>
+																
 																<option th:each="la : ${areas}" th:value="${la.idarea}"
 																	th:text="${la.nombre}"
 																	th:selected="${materia.area.idarea == la.idarea}"></option>
@@ -67,7 +67,7 @@
 														<div class="form-select ">
 															<select class="list-group-item list-group-item-action list-group-item-primary"
 																th:field="*{semestre.idsemestre}">
-																<option value="0">Semestre  Opci&oacute;n</option>
+																
 																
 																<option th:each="ls : ${semestres}" th:value="${ls.idsemestre}"
 																	th:text="${ls.descripcion}"

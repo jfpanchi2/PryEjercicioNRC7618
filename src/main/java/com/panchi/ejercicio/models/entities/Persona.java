@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -24,12 +27,17 @@ public abstract class Persona {
 	private Integer idpersona;
 	
 	@Column(name="nombre")
+	@NotEmpty
+	@Size(max=35)
 	private String nombre;
 	
 	@Column(name="apellido")
+	@Size(max=35)
 	private String apellido;
 	
 	@Column(name="cedula")
+	@NotEmpty
+	@Size(max=10)
 	private String cedula;
 	
 	@Column(name="lugar_nacimiento")
@@ -44,7 +52,11 @@ public abstract class Persona {
 	private String sexo;
 	
 	@Column(name="email")
+	@Email
 	private String email;
+	
+	@Column(name = "imagen")
+	private String imagen;
 	
 	@Column(name="telefono")
 	private String telefono;
@@ -130,7 +142,14 @@ public abstract class Persona {
 		this.telefono = telefono;
 	}
 	
-	
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
 	@Override
 	public String toString() {
 		return this.getApellido()+ " "+this.getNombre();

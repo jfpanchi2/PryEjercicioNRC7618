@@ -8,6 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 
 
 
@@ -18,7 +21,9 @@ public class Alumno extends Persona implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Column(name="identificador")
-	private Integer identificador;
+	@NotEmpty
+	@Size(max=10)
+	private String identificador;
 	
 	@OneToMany(mappedBy="estudiante", fetch=FetchType.LAZY)
 	private List<Matricula> matriculas;
@@ -35,11 +40,11 @@ public class Alumno extends Persona implements Serializable{
 	
 	
 	
-	public Integer getIdentificador() {
+	public String getIdentificador() {
 		return identificador;
 	}
 
-	public void setIdentificador(Integer identificador) {
+	public void setIdentificador(String identificador) {
 		this.identificador = identificador;
 	}
 

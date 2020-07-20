@@ -33,7 +33,7 @@ public class Aula implements Serializable {
 	private Calendar fechaFin;
 	
 	
-	@JoinColumn(name="fk_profesor", referencedColumnName="pk_persona")
+	@JoinColumn(name="fk_profesor", referencedColumnName="pk_profesor")
 	@ManyToOne
 	private Profesor docente;
 	

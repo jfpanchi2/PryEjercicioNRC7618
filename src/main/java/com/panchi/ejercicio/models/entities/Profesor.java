@@ -1,12 +1,17 @@
 package com.panchi.ejercicio.models.entities;
 
+
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -15,6 +20,12 @@ import javax.persistence.Table;
 public class Profesor extends Persona implements Serializable {
 
 	private static final long serialVersionUID =1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Basic(optional = false)
+	@Column(name = "pk_profesor")
+	private Integer idprofesor;
 	
 	@Column(name="titulo")
 	private String titulo;
@@ -36,9 +47,26 @@ public class Profesor extends Persona implements Serializable {
 	
 	public Profesor (Integer id) {
 		super();
-		this.setIdpersona(id);
+		this.idprofesor=id;
 	}
 	
+	
+	public Integer getIdprofesor() {
+		return idprofesor;
+	}
+
+	public void setIdprofesor(Integer idprofesor) {
+		this.idprofesor = idprofesor;
+	}
+
+	public List<Aula> getAulas() {
+		return aulas;
+	}
+
+	public void setAulas(List<Aula> aulas) {
+		this.aulas = aulas;
+	}
+
 	public String getTitulo() {
 		return titulo;
 	}

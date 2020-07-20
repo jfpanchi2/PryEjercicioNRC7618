@@ -22,85 +22,182 @@
 							<div class="card-body p-0">
 								<!-- Nested Row within Card Body -->
 								<div class="row">
-									<div class="col-lg-7">
+									<div class="col-lg-12">
 										<div class="p-5">
-											<div class="media">
-												<div class="media-left">
-													<img th:src="@{/img/} + ${alumno.imagen}" width="120"
-														height="120" />
-												</div>
-												<div class="media-body">
-													<br />
-													<h2 th:text="${alumno}" class="media-heading"></h2>
-												</div>
+											<div class="text-center">
+												<h1 th:text="${title}" class="h4 text-gray-900 mb-4"></h1>
 											</div>
-											<hr>
-											<div class="form-group row">
-												<div class="col-sm-6 mb-3 mb-sm-0">
-													<label class="form-control form-control-user"
-														th:text="${alumno.cedula}"></label>
+											<form class="user" th:action="@{/alumno/save}"
+												th:object="${alumno}" enctype="multipart/form-data"
+												method="post">
+												<hr>
+												<div class="form-group row">
+													<div class="col-sm-4 mb-3 mb-sm-0">
+														<div class="input-group mb-3">
+															<div class="input-group-prepend">
+																<span class="input-group-text"><i
+																	class="far fa-address-card"></i></span>
+															</div>
+															<input type="text" class="form-control"
+																th:field="*{cedula}"
+																th:errorclass="'form-control is-invalid'"
+																placeholder="C&eacute;dula">
+																<small class="invalid-feedback"
+															th:if="${#fields.hasErrors('cedula')}"
+															th:errors="*{cedula}"></small>
+														</div>														
+													</div>
+													<div class="col-sm-4 mb-3 mb-sm-0">
+														<div class="input-group mb-3">
+															<div class="input-group-prepend">
+																<span class="input-group-text"><i
+																	class="far fa-address-book"></i></span>
+															</div>
+															<input type="text" class="form-control"
+																th:field="*{identificador}"
+																th:errorclass="'form-control is-invalid'"
+																placeholder="Identificador" />
+																<small class="invalid-feedback"
+															th:if="${#fields.hasErrors('identificador')}"
+															th:errors="*{identificador}"></small>
+																
+														</div>
+																											</div>
+													<div class="col-sm-4 mb-3 mb-sm-0">
+														<div class="input-group mb-3">
+															<div class="input-group-prepend">
+																<span class="input-group-text"><i
+																	class="fas fa-phone"></i></span>
+															</div>
+															<input type="text" class="form-control"
+																th:field="*{telefono}" placeholder="Tel&eacute;fono" />
+														</div>
+													</div>
 												</div>
-												<div class="col-sm-6 mb-3 mb-sm-0">
-													<label class="form-control form-control-user"
-														th:text="${alumno.identificador}"></label>
+												<div class="form-group row">
+													<div class="col-sm-4 mb-3 mb-sm-0">
+														<div class="input-group mb-3">
+															<div class="input-group-prepend">
+																<span class="input-group-text"><i
+																	class="fas fa-user-tie"></i></span>
+															</div>
+															<input type="text" class="form-control"
+																th:errorclass="'form-control is-invalid'"
+																th:field="*{nombre}" placeholder="Nombres" />
+																<small class="invalid-feedback"
+															th:if="${#fields.hasErrors('nombre')}"
+															th:errors="*{nombre}"></small>
+														</div>
+														
+													</div>
+													<div class="col-sm-4 mb-3 mb-sm-0">
+														<div class="input-group mb-3">
+															<div class="input-group-prepend">
+																<span class="input-group-text"><i
+																	class="fas fa-user-tie"></i></span>
+															</div>
+															<input type="text" class="form-control"
+																th:errorclass="'form-control is-invalid'"
+																th:field="*{apellido}" placeholder="Apellidos" />
+																<small class="invalid-feedback"
+															th:if="${#fields.hasErrors('apellido')}"
+															th:errors="*{apellido}"></small>
+														</div>
+														
+													</div>
+													<div class="col-sm-4 mb-3 mb-sm-0">
+														<div class="input-group mb-3">
+															<div class="input-group-prepend">
+																<span class="input-group-text"><i
+																	class="fas fa-at"></i></span>
+															</div>
+															<input type="text" class="form-control"
+																th:field="*{email}"
+																th:errorclass="'form-control is-invalid'"
+																placeholder="Correo electr&oacute;nico">
+															<small class="invalid-feedback"
+															th:if="${#fields.hasErrors('email')}"
+															th:errors="*{email}"></small>
+														</div>
+													</div>
 												</div>
-											</div>
-											<div class="form-group row">
-												<div class="col-sm-6 mb-3 mb-sm-0">
-													<label class="form-control form-control-user"
-														th:text="${alumno.nombre}"></label>
-												</div>
-												<div class="form-group col-sm-6">
-													<label class="form-control form-control-user"
-														th:text="${alumno.apellido}"></label>
-												</div>
-											</div>
-											<div class="form-group row">
-												<div class="col-sm-6 mb-3 mb-sm-0">
-													<label class="form-control form-control-user"
-														th:text="${alumno.email}"></label>
-												</div>
-												<div class="col-sm-6 mb-3 mb-sm-0">
-													<label class="form-control form-control-user"
-														th:text="${alumno.telefono}"></label>
-												</div>
-											</div>
-											<h6>Nacimiento:</h6>
-											<div class="form-group row">
-												<div class="col-sm-6 mb-3 mb-sm-0">
-													<label class="form-control form-control-user"
-														th:text="${alumno.fechaNac()}"></label>
-												</div>
-												<div class="col-sm-6">
-													<label class="form-control form-control-user"
-														th:text="${alumno.lugarNacimiento}"></label>
-												</div>
-											</div>
-											<div class="form-group">
-												<div class="col-sm-6 mb-3 mb-sm-0">
-													<label class="form-control form-control-user"
-														th:text="${alumno.sexo}"></label>
-												</div>
-											</div>
 
-											<hr>
-											<h5 class="modal-title">Desea eliminar el registro?</h5>
-											<div class="form-group row">
-												<div class="col-sm-6 mb-3 mb-sm-0">
-													<a th:href="@{/alumno/delete/} + ${alumno.idpersona}"
-														class="btn btn-success btn-user btn-block">Confirmar</a>
+												<div class="form-group row">
+													<div class="col-sm-4 mb-3 mb-sm-0">
+														<div class="input-group mb-3">
+															<div class="input-group-prepend">
+																<span class="input-group-text"><i
+																	class="fas fa-calendar-alt"></i></span>
+															</div>
+															<input type="date" class="form-control"
+																th:field="*{fechaNacimiento}">
+														</div>
+													</div>
+													<div class="col-sm-4 mb-3 mb-sm-0">
+														<div class="input-group mb-3">
+															<div class="input-group-prepend">
+																<span class="input-group-text"><i
+																	class="fas fa-map-marker-alt"></i></span>
+															</div>
+															<input type="text" class="form-control"
+																th:field="*{lugarNacimiento}"
+																placeholder="Lugar de nacimiento">
+														</div>
+													</div>
+													<div class="col-sm-4 mb-3 mb-sm-0">
+														<div class="input-group mb-3">
+															<div class="input-group-prepend">
+																<span class="input-group-text"><i
+																	class="fas fa-camera"></i></span>
+															</div>
+															<input type="file" name="photo" id="photo"
+																class="form-control">
+														</div>
+													</div>
 												</div>
-												<div class="col-sm-6 mb-3 mb-sm-0">
-													<a th:href="@{/alumno/list}"
-														class="btn btn-danger btn-user btn-block">Cancelar</a>
+												<div class="form-group row">
+													<div class="col-sm-6 mb-3 mb-sm-0">
+														<div class="input-group mb-3">
+															<div class="input-group-prepend">
+																<span class="input-group-text"><i
+																	class="fas fa-venus-mars"></i></span>
+															</div>
+															&nbsp;&nbsp;&nbsp;<label class="radio-inline"><input
+																type="radio" th:field="*{sexo}" value="M" />&nbsp;Mujer</label>
+															&nbsp;&nbsp;&nbsp;<label class="radio-inline"><input
+																type="radio" th:field="*{sexo}" value="H" />&nbsp;Hombre</label>
+
+														</div>
+													</div>
+													<div class="col-sm-6 mb-3 mb-sm-0">
+														<div class="btn-group">
+															<button type="submit" class="btn btn-success">
+																<i class="fas fa-save"></i> &nbsp;Guardar
+															</button>
+															<button type="reset" class="btn btn-danger">
+																<i class="fas fa-times"></i> &nbsp;Cancelar
+															</button>
+															<a th:href="@{/alumno/list}" class="btn btn-info">
+																<i class="fas fa-users"></i> &nbsp;Volver
+															</a>
+														</div>
+													</div>
+
+
 												</div>
-											</div>
+												<input type="hidden" th:field="*{idalumno}" />
+
+											</form>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+
 					</div>
+
+
+
 				</div>
 				<!-- /.container-fluid -->
 
@@ -109,6 +206,8 @@
 			<footer th:replace="layout :: frgFooter"></footer>
 
 		</div>
+
+		<div th:replace="layout :: frgScripts"></div>
 
 	</div>
 

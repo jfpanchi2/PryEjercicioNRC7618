@@ -88,7 +88,7 @@ public class AlumnoController {
 			String message = "Alumn@ agregado correctamente";
 			String titulo = "Registro de nuevo alumn@";
 
-			if (alumno.getIdpersona() != null) {
+			if (alumno.getIdalumno() != null) {
 				message = "Alumn@ actualizado correctamente";
 				titulo = "Actualizando el registro de " + alumno;
 			}

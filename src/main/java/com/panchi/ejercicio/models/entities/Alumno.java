@@ -3,14 +3,17 @@ package com.panchi.ejercicio.models.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-
 
 
 
@@ -19,6 +22,13 @@ import javax.validation.constraints.Size;
 public class Alumno extends Persona implements Serializable{
 
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Basic(optional = false)
+	@Column(name = "pk_alumno")
+	private Integer idalumno;
+	
 	
 	@Column(name="identificador")
 	@NotEmpty
@@ -35,11 +45,18 @@ public class Alumno extends Persona implements Serializable{
 
 	public Alumno(Integer id) {
 		super();
-		this.setIdpersona(id);;
+		this.idalumno=id;
 	}
 	
 	
-	
+	public Integer getIdalumno() {
+		return idalumno;
+	}
+
+	public void setIdalumno(Integer idalumno) {
+		this.idalumno = idalumno;
+	}
+
 	public String getIdentificador() {
 		return identificador;
 	}

@@ -23,4 +23,9 @@ public class MainController {
 	public String register(Model model) {						
 		return "register";
 	}
+	
+	@GetMapping(value= {"/404.html"})
+	public String notfound(Model model) {		
+		return "404";
+	}
 }

@@ -35,7 +35,7 @@ public class Matricula implements Serializable{
 	private String tipo;
 	
 	
-	@JoinColumn(name="fk_estudiante", referencedColumnName="pk_persona")
+	@JoinColumn(name="fk_estudiante", referencedColumnName="pk_alumno")
 	@ManyToOne
 	private Alumno estudiante;
 	

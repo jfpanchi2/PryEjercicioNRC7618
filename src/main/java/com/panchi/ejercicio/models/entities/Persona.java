@@ -3,11 +3,8 @@ package com.panchi.ejercicio.models.entities;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import javax.persistence.Basic;
+
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -20,11 +17,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @MappedSuperclass
 public abstract class Persona {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Basic(optional = false)
-	@Column(name="pk_persona")
-	private Integer idpersona;
+	
 	
 	@Column(name="nombre")
 	@NotEmpty
@@ -65,19 +58,11 @@ public abstract class Persona {
 		super();
 	}
 	
-	public Persona (Integer id) {
-		super();
-		this.idpersona =id;
+	public Persona(Integer id) {
+		super();	
 	}
-
-	public Integer getIdpersona() {
-		return idpersona;
-	}
-
-	public void setIdpersona(Integer idpersona) {
-		this.idpersona = idpersona;
-	}
-
+	
+	
 	public String getNombre() {
 		return nombre;
 	}
